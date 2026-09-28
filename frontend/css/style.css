@@ -1,0 +1,88 @@
+/* =========================================================
+   BOOKSHOP - ESTILO BASE
+   DW1 2026 - 3º Projeto
+   ========================================================= */
+
+:root {
+    --preto: #11100E;
+    --preto-secundario: #1A1917;
+
+    --dourado: #C9A646;
+    --dourado-claro: #E0C56E;
+    --amarelo: #D6A928;
+
+    --vermelho: #8B2626;
+    --vinho: #5B2C32;
+
+    --marrom: #76533A;
+    --bege: #D5BF86;
+    --creme: #F2E7CC;
+
+    --verde-oliva: #475842;
+
+    --branco: #F5F1E8;
+
+    --texto-suave: #C9C0AD;
+    --borda: rgba(201, 166, 70, 0.45);
+}
+
+* {
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    margin: 0;
+    min-height: 100vh;
+
+    background:
+        radial-gradient(
+            circle at top,
+            rgba(201, 166, 70, 0.06),
+            transparent 40%
+        ),
+        var(--preto);
+
+    color: var(--branco);
+
+    font-family: Georgia, "Times New Roman", serif;
+    line-height: 1.5;
+}
+
+img {
+    max-width: 100%;
+}
+
+button,
+input,
+select,
+textarea {
+    font: inherit;
+}
+
+button {
+    cursor: pointer;
+}
+
+a {
+    color: var(--dourado);
+}
+
+a:hover {
+    color: var(--dourado-claro);
+}
+
+h1,
+h2,
+h3,
+h4 {
+    color: var(--dourado);
+}
+
+::selection {
+    background: var(--dourado);
+    color: var(--preto);
+}

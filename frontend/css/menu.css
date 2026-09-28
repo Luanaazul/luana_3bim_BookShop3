@@ -1,0 +1,627 @@
+/* =========================================================
+   BOOKSHOP
+   MENU PRINCIPAL
+   ========================================================= */
+
+
+/* =========================================================
+   VARIÁVEIS DE CORES
+   ========================================================= */
+
+:root {
+
+    --preto: #0d0d0c;
+
+    --preto-2: #141311;
+
+    --preto-3: #1b1916;
+
+    --preto-card: #211d18;
+
+    --dourado: #bda052;
+
+    --dourado-claro: #d5bf86;
+
+    --amarelo: #d8b84f;
+
+    --marrom: #805c38;
+
+    --marrom-medio: #6b4a2e;
+
+    --vinho: #5b2c32;
+
+    --vermelho: #8b2626;
+
+    --branco: #f4f0e6;
+
+    --cinza: #aaa398;
+
+    --linha: rgba(189, 160, 82, 0.28);
+
+    --linha-fraca: rgba(189, 160, 82, 0.15);
+
+}
+
+
+/* =========================================================
+   RESET
+   ========================================================= */
+
+* {
+
+    box-sizing: border-box;
+
+}
+
+
+html {
+
+    min-height: 100%;
+
+}
+
+
+body {
+
+    margin: 0;
+
+    min-height: 100vh;
+
+    display: flex;
+
+    flex-direction: column;
+
+    background:
+        radial-gradient(
+            circle at 50% 0%,
+            #29231b 0%,
+            var(--preto) 45%,
+            #080808 100%
+        );
+
+    color: var(--branco);
+
+    font-family:
+        Georgia,
+        "Times New Roman",
+        serif;
+
+}
+
+
+/* =========================================================
+   CABEÇALHO
+   ========================================================= */
+
+.site-header {
+
+    width: 100%;
+
+    background:
+        linear-gradient(
+            180deg,
+            #11100e 0%,
+            #0b0b0a 100%
+        );
+
+    border-bottom: 1px solid var(--linha);
+
+}
+
+
+.header-content {
+
+    width: min(1250px, 92%);
+
+    margin: 0 auto;
+
+    padding: 34px 0 27px;
+
+    text-align: center;
+
+}
+
+
+.site-title {
+
+    margin: 0;
+
+    color: var(--dourado);
+
+    font-family:
+        Georgia,
+        "Times New Roman",
+        serif;
+
+    font-size: clamp(2.8rem, 6vw, 5.5rem);
+
+    font-weight: normal;
+
+    letter-spacing: 0.18em;
+
+    line-height: 1;
+
+    text-shadow:
+        0 2px 8px rgba(0, 0, 0, 0.7);
+
+}
+
+
+.site-subtitle {
+
+    margin: 14px 0 0;
+
+    color: var(--dourado-claro);
+
+    font-size: clamp(0.85rem, 1.5vw, 1.05rem);
+
+    font-style: italic;
+
+    letter-spacing: 0.08em;
+
+}
+
+
+/* =========================================================
+   NAVEGAÇÃO
+   ========================================================= */
+
+.menu-nav {
+
+    width: 100%;
+
+    background: #080808;
+
+    border-bottom: 1px solid var(--linha);
+
+}
+
+
+.menu-links {
+
+    width: min(1250px, 92%);
+
+    min-height: 58px;
+
+    margin: 0 auto;
+
+    padding: 0;
+
+    display: flex;
+
+    align-items: stretch;
+
+    list-style: none;
+
+}
+
+
+.menu-links li {
+
+    flex: 1;
+
+    display: flex;
+
+}
+
+
+.menu-link {
+
+    width: 100%;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    padding: 15px 18px;
+
+    color: var(--branco);
+
+    text-decoration: none;
+
+    font-size: 0.88rem;
+
+    font-weight: bold;
+
+    letter-spacing: 0.13em;
+
+    border-left: 1px solid var(--linha-fraca);
+
+    transition:
+        color 0.2s ease,
+        background 0.2s ease;
+
+}
+
+
+.menu-links li:last-child .menu-link {
+
+    border-right: 1px solid var(--linha-fraca);
+
+}
+
+
+.menu-link:hover {
+
+    background: var(--dourado);
+
+    color: var(--preto);
+
+}
+
+
+/* =========================================================
+   CONTEÚDO PRINCIPAL
+   ========================================================= */
+
+.menu-main {
+
+    width: min(1250px, 92%);
+
+    flex: 1;
+
+    margin: 0 auto;
+
+    padding: 35px 0 45px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+}
+
+
+/* =========================================================
+   CARROSSEL
+   ========================================================= */
+
+.menu-carousel {
+
+    position: relative;
+
+    width: 100%;
+
+    max-width: 1120px;
+
+    aspect-ratio: 16 / 7;
+
+    overflow: hidden;
+
+    background: var(--preto-3);
+
+    border: 1px solid var(--linha);
+
+    box-shadow:
+        0 20px 45px rgba(0, 0, 0, 0.55);
+
+}
+
+
+/* =========================================================
+   IMAGEM
+   ========================================================= */
+
+.menu-carousel-image {
+
+    width: 100%;
+
+    height: 100%;
+
+    display: block;
+
+    object-fit: cover;
+
+    object-position: center;
+
+    transition:
+        opacity 0.25s ease;
+
+}
+
+
+/* =========================================================
+   SETAS
+   ========================================================= */
+
+.carousel-button {
+
+    position: absolute;
+
+    top: 50%;
+
+    width: 48px;
+
+    height: 72px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    transform: translateY(-50%);
+
+    padding: 0;
+
+    background: rgba(10, 10, 9, 0.78);
+
+    color: var(--dourado-claro);
+
+    border: 1px solid rgba(213, 191, 134, 0.35);
+
+    border-radius: 0;
+
+    cursor: pointer;
+
+    font-family:
+        Georgia,
+        "Times New Roman",
+        serif;
+
+    font-size: 3rem;
+
+    font-weight: normal;
+
+    line-height: 1;
+
+    z-index: 5;
+
+    transition:
+        background 0.2s ease,
+        color 0.2s ease,
+        border-color 0.2s ease;
+
+}
+
+
+.carousel-button:hover {
+
+    background: var(--dourado);
+
+    color: var(--preto);
+
+    border-color: var(--dourado);
+
+}
+
+
+.carousel-prev {
+
+    left: 18px;
+
+}
+
+
+.carousel-next {
+
+    right: 18px;
+
+}
+
+
+/* =========================================================
+   INDICADORES
+   ========================================================= */
+
+.carousel-indicators {
+
+    position: absolute;
+
+    left: 50%;
+
+    bottom: 18px;
+
+    transform: translateX(-50%);
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 9px;
+
+    z-index: 5;
+
+}
+
+
+.carousel-indicator {
+
+    width: 9px;
+
+    height: 9px;
+
+    min-height: 9px;
+
+    padding: 0;
+
+    background: rgba(213, 191, 134, 0.45);
+
+    border: 1px solid var(--dourado-claro);
+
+    border-radius: 50%;
+
+    cursor: pointer;
+
+}
+
+
+.carousel-indicator:hover {
+
+    background: var(--dourado);
+
+}
+
+
+.carousel-indicator.active {
+
+    background: var(--dourado);
+
+    transform: scale(1.25);
+
+}
+
+
+/* =========================================================
+   RODAPÉ
+   ========================================================= */
+
+.site-footer {
+
+    width: 100%;
+
+    margin-top: auto;
+
+    padding: 20px;
+
+    background: #080808;
+
+    border-top: 1px solid var(--linha);
+
+    text-align: center;
+
+}
+
+
+.site-footer p {
+
+    margin: 0;
+
+    color: var(--dourado-claro);
+
+    font-size: 0.82rem;
+
+    letter-spacing: 0.06em;
+
+}
+
+
+/* =========================================================
+   RESPONSIVIDADE
+   ========================================================= */
+
+@media (max-width: 800px) {
+
+    .menu-links {
+
+        width: 100%;
+
+    }
+
+
+    .menu-link {
+
+        padding: 13px 8px;
+
+        font-size: 0.72rem;
+
+        letter-spacing: 0.07em;
+
+    }
+
+
+    .menu-main {
+
+        width: 94%;
+
+        padding: 25px 0 35px;
+
+    }
+
+
+    .menu-carousel {
+
+        aspect-ratio: 4 / 3;
+
+    }
+
+
+    .carousel-button {
+
+        width: 40px;
+
+        height: 58px;
+
+        font-size: 2.3rem;
+
+    }
+
+
+    .carousel-prev {
+
+        left: 10px;
+
+    }
+
+
+    .carousel-next {
+
+        right: 10px;
+
+    }
+
+}
+
+
+@media (max-width: 520px) {
+
+    .site-title {
+
+        font-size: 2.1rem;
+
+        letter-spacing: 0.12em;
+
+    }
+
+
+    .site-subtitle {
+
+        font-size: 0.78rem;
+
+    }
+
+
+    .menu-links {
+
+        display: grid;
+
+        grid-template-columns: 1fr 1fr;
+
+    }
+
+
+    .menu-links li {
+
+        min-height: 48px;
+
+    }
+
+
+    .menu-link {
+
+        font-size: 0.7rem;
+
+    }
+
+
+    .menu-carousel {
+
+        aspect-ratio: 3 / 4;
+
+    }
+
+
+    .carousel-button {
+
+        width: 36px;
+
+        height: 52px;
+
+        font-size: 2rem;
+
+    }
+
+}

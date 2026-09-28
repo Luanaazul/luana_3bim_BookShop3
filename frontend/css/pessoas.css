@@ -1,0 +1,431 @@
+/* =========================================================
+   BOOKSHOP - CRUD DE PESSOAS
+   ========================================================= */
+
+:root {
+    --preto: #11100E;
+    --preto-secundario: #1A1917;
+
+    --dourado: #C9A646;
+    --dourado-claro: #E0C56E;
+    --amarelo: #D6A928;
+
+    --vermelho: #8B2626;
+    --vinho: #5B2C32;
+
+    --marrom: #76533A;
+    --bege: #D5BF86;
+    --creme: #F2E7CC;
+
+    --branco: #F5F1E8;
+
+    --muted: #B8AF9D;
+    --borda: rgba(201, 166, 70, 0.4);
+}
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+
+    background:
+        radial-gradient(
+            circle at top,
+            rgba(201, 166, 70, 0.05),
+            transparent 45%
+        ),
+        var(--preto);
+
+    color: var(--branco);
+
+    font-family: Georgia, "Times New Roman", serif;
+
+    line-height: 1.5;
+}
+
+/* =========================================================
+   CABEÇALHO
+   ========================================================= */
+
+header {
+    padding: 35px 5% 25px;
+
+    background: var(--preto-secundario);
+
+    border-bottom: 1px solid var(--borda);
+}
+
+header h1 {
+    margin: 0;
+
+    color: var(--dourado);
+
+    font-size: clamp(2.2rem, 5vw, 4rem);
+
+    letter-spacing: 0.1em;
+}
+
+header p {
+    color: var(--muted);
+}
+
+/* =========================================================
+   NAV
+   ========================================================= */
+
+nav {
+    background: #050505;
+
+    border-bottom: 1px solid var(--borda);
+}
+
+nav ul {
+    display: flex;
+
+    margin: 0;
+    padding: 0;
+
+    list-style: none;
+}
+
+nav li {
+    flex: 1;
+}
+
+nav a {
+    display: block;
+
+    padding: 15px;
+
+    color: var(--branco);
+
+    text-align: center;
+
+    text-decoration: none;
+
+    font-weight: bold;
+
+    letter-spacing: 0.07em;
+
+    border-right: 1px solid rgba(201, 166, 70, 0.15);
+}
+
+nav a:hover {
+    background: var(--dourado);
+
+    color: var(--preto);
+}
+
+/* =========================================================
+   MAIN
+   ========================================================= */
+
+main {
+    max-width: 1200px;
+
+    margin: auto;
+
+    padding: 35px 25px 60px;
+}
+
+section,
+aside {
+    margin-bottom: 25px;
+
+    padding: 25px;
+
+    background:
+        linear-gradient(
+            145deg,
+            rgba(118, 83, 58, 0.12),
+            rgba(26, 25, 23, 0.98)
+        );
+
+    border: 1px solid var(--borda);
+
+    border-radius: 4px;
+
+    box-shadow:
+        0 10px 30px rgba(0, 0, 0, 0.25);
+}
+
+h2,
+h3 {
+    color: var(--dourado);
+
+    letter-spacing: 0.07em;
+}
+
+/* =========================================================
+   PESQUISA
+   ========================================================= */
+
+.search-row {
+    display: flex;
+
+    align-items: end;
+
+    gap: 12px;
+
+    margin-bottom: 25px;
+}
+
+.search-row > div {
+    flex: 1;
+}
+
+/* =========================================================
+   FORMULÁRIO
+   ========================================================= */
+
+.form-grid {
+    display: grid;
+
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+
+    gap: 18px;
+}
+
+.form-grid > div {
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 6px;
+}
+
+.form-grid .wide {
+    grid-column: 1 / -1;
+}
+
+label {
+    color: var(--bege);
+
+    font-weight: bold;
+
+    letter-spacing: 0.04em;
+}
+
+input,
+select {
+    width: 100%;
+
+    padding: 11px 13px;
+
+    background: #0B0B0A;
+
+    color: var(--branco);
+
+    border: 1px solid rgba(201, 166, 70, 0.35);
+
+    border-radius: 3px;
+
+    outline: none;
+}
+
+input:focus,
+select:focus {
+    border-color: var(--dourado);
+
+    box-shadow:
+        0 0 0 2px rgba(201, 166, 70, 0.12);
+}
+
+/* =========================================================
+   CLIENTE / FUNCIONÁRIO
+   ========================================================= */
+
+.crud-card {
+    background: rgba(118, 83, 58, 0.08);
+
+    border: 1px solid rgba(201, 166, 70, 0.2);
+
+    padding: 20px;
+
+    margin-top: 20px;
+}
+
+/* =========================================================
+   BOTÕES
+   ========================================================= */
+
+button {
+    padding: 11px 18px;
+
+    background: var(--dourado);
+
+    color: var(--preto);
+
+    border: 1px solid var(--dourado);
+
+    border-radius: 3px;
+
+    cursor: pointer;
+
+    font-weight: bold;
+
+    transition:
+        background-color 0.2s ease,
+        color 0.2s ease,
+        transform 0.2s ease;
+}
+
+button:hover {
+    background: var(--dourado-claro);
+
+    transform: translateY(-1px);
+}
+
+button:disabled {
+    opacity: 0.45;
+
+    cursor: not-allowed;
+
+    transform: none;
+}
+
+.button-secondary {
+    background: transparent;
+
+    color: var(--dourado);
+
+    border-color: var(--dourado);
+}
+
+.button-secondary:hover {
+    background: var(--dourado);
+
+    color: var(--preto);
+}
+
+.button-danger {
+    background: var(--vinho);
+
+    color: var(--branco);
+
+    border-color: var(--vinho);
+}
+
+.button-danger:hover {
+    background: var(--vermelho);
+
+    color: var(--branco);
+}
+
+.form-actions {
+    display: flex;
+
+    flex-wrap: wrap;
+
+    gap: 10px;
+
+    margin-top: 25px;
+}
+
+/* =========================================================
+   STATUS
+   ========================================================= */
+
+.status {
+    min-height: 1.5em;
+
+    color: var(--muted);
+}
+
+.status.error {
+    color: #D98989;
+}
+
+/* =========================================================
+   TABELAS
+   ========================================================= */
+
+.table-container {
+    overflow-x: auto;
+
+    margin-bottom: 25px;
+}
+
+table {
+    width: 100%;
+
+    min-width: 700px;
+
+    border-collapse: collapse;
+}
+
+th,
+td {
+    padding: 12px;
+
+    text-align: left;
+
+    border-bottom: 1px solid rgba(201, 166, 70, 0.18);
+}
+
+th {
+    background: #080807;
+
+    color: var(--dourado);
+
+    letter-spacing: 0.05em;
+}
+
+td {
+    color: var(--branco);
+}
+
+tr:hover td {
+    background: rgba(201, 166, 70, 0.05);
+}
+
+/* =========================================================
+   RODAPÉ
+   ========================================================= */
+
+footer {
+    padding: 20px;
+
+    background: #080807;
+
+    color: var(--creme);
+
+    text-align: center;
+
+    border-top: 1px solid var(--borda);
+}
+
+footer p {
+    margin: 0;
+}
+
+/* =========================================================
+   RESPONSIVO
+   ========================================================= */
+
+@media (max-width: 750px) {
+
+    .form-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .form-grid .wide {
+        grid-column: auto;
+    }
+
+    .search-row {
+        flex-direction: column;
+
+        align-items: stretch;
+    }
+
+    nav ul {
+        flex-wrap: wrap;
+    }
+
+    nav li {
+        flex: 1 1 50%;
+    }
+}

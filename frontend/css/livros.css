@@ -1,0 +1,484 @@
+ /* =========================================================
+   BOOKSHOP - CRUD DE LIVROS
+   ========================================================= */
+
+:root {
+    --preto: #11100E;
+    --preto-secundario: #1A1917;
+    --dourado: #C9A646;
+    --dourado-claro: #E0C56E;
+    --amarelo: #D6A928;
+    --vermelho: #8B2626;
+    --vinho: #5B2C32;
+    --marrom: #76533A;
+    --bege: #D5BF86;
+    --creme: #F2E7CC;
+    --branco: #F5F1E8;
+    --borda: rgba(201, 166, 70, 0.4);
+    --muted: #B8AF9D;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+
+    background:
+        radial-gradient(
+            circle at top,
+            rgba(201, 166, 70, 0.05),
+            transparent 45%
+        ),
+        var(--preto);
+
+    color: var(--branco);
+
+    font-family: Georgia, "Times New Roman", serif;
+    line-height: 1.5;
+}
+
+header,
+nav,
+main,
+footer {
+    width: 100%;
+}
+
+header {
+    padding: 35px 5% 20px;
+
+    background: var(--preto-secundario);
+
+    border-bottom: 1px solid var(--borda);
+}
+
+header h1 {
+    margin: 0;
+
+    color: var(--dourado);
+
+    font-size: clamp(2rem, 5vw, 3.5rem);
+
+    letter-spacing: 0.12em;
+}
+
+header p {
+    color: var(--muted);
+}
+
+nav {
+    padding: 0;
+
+    background: #050505;
+
+    border-bottom: 1px solid var(--borda);
+}
+
+nav ul {
+    display: flex;
+
+    flex-wrap: wrap;
+
+    margin: 0;
+    padding: 0;
+
+    list-style: none;
+}
+
+nav li {
+    flex: 1;
+}
+
+nav a {
+    display: block;
+
+    padding: 16px;
+
+    color: var(--branco);
+
+    text-align: center;
+
+    text-decoration: none;
+
+    font-weight: bold;
+
+    letter-spacing: 0.08em;
+
+    border-right: 1px solid rgba(201, 166, 70, 0.15);
+}
+
+nav a:hover {
+    background: var(--dourado);
+
+    color: var(--preto);
+}
+
+main {
+    max-width: 1250px;
+
+    margin: auto;
+
+    padding: 35px 25px 60px;
+}
+
+section,
+aside {
+    background:
+        linear-gradient(
+            145deg,
+            rgba(118, 83, 58, 0.12),
+            rgba(26, 25, 23, 0.98)
+        );
+
+    border: 1px solid var(--borda);
+
+    border-radius: 4px;
+
+    padding: 25px;
+
+    margin-bottom: 25px;
+
+    box-shadow:
+        0 10px 30px rgba(0, 0, 0, 0.25);
+}
+
+h2 {
+    margin-top: 0;
+
+    color: var(--dourado);
+
+    letter-spacing: 0.08em;
+}
+
+label {
+    display: block;
+
+    margin-bottom: 6px;
+
+    color: var(--bege);
+
+    font-weight: bold;
+
+    letter-spacing: 0.04em;
+}
+
+input,
+select,
+textarea {
+    width: 100%;
+
+    padding: 11px 13px;
+
+    background: #0B0B0A;
+
+    color: var(--branco);
+
+    border: 1px solid rgba(201, 166, 70, 0.35);
+
+    border-radius: 3px;
+
+    outline: none;
+}
+
+input:focus,
+select:focus,
+textarea:focus {
+    border-color: var(--dourado);
+
+    box-shadow:
+        0 0 0 2px rgba(201, 166, 70, 0.12);
+}
+
+textarea {
+    resize: vertical;
+}
+
+/* =========================================================
+   PESQUISA
+   ========================================================= */
+
+.search-row {
+    display: flex;
+
+    align-items: end;
+
+    gap: 12px;
+
+    margin-bottom: 25px;
+}
+
+.search-row > div {
+    flex: 1;
+}
+
+.search-row button {
+    min-height: 44px;
+}
+
+/* =========================================================
+   FORMULÁRIO
+   ========================================================= */
+
+.form-grid {
+    display: grid;
+
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+
+    gap: 18px;
+}
+
+.form-group {
+    display: flex;
+
+    flex-direction: column;
+}
+
+.form-group-wide {
+    grid-column: 1 / -1;
+}
+
+/* =========================================================
+   ÁREA DE IMAGEM
+   ========================================================= */
+
+.image-area {
+    border-top: 1px solid rgba(201, 166, 70, 0.15);
+
+    padding-top: 18px;
+}
+
+#imagem-preview {
+    display: block;
+
+    width: 230px;
+    height: 330px;
+
+    margin-top: 12px;
+
+    object-fit: contain;
+
+    background: #080807;
+
+    border: 2px solid var(--dourado);
+
+    box-shadow:
+        0 8px 20px rgba(0, 0, 0, 0.45);
+}
+
+/* =========================================================
+   BOTÕES
+   ========================================================= */
+
+button {
+    padding: 11px 18px;
+
+    background: var(--dourado);
+
+    color: var(--preto);
+
+    border: 1px solid var(--dourado);
+
+    border-radius: 3px;
+
+    font-weight: bold;
+
+    letter-spacing: 0.04em;
+
+    transition:
+        background-color 0.2s ease,
+        color 0.2s ease,
+        transform 0.2s ease;
+}
+
+button:hover {
+    background: var(--dourado-claro);
+
+    transform: translateY(-1px);
+}
+
+button:disabled {
+    cursor: not-allowed;
+
+    opacity: 0.45;
+
+    transform: none;
+}
+
+.button-secondary {
+    background: transparent;
+
+    color: var(--dourado);
+
+    border-color: var(--dourado);
+}
+
+.button-secondary:hover {
+    background: var(--dourado);
+
+    color: var(--preto);
+}
+
+.button-danger {
+    background: var(--vinho);
+
+    color: var(--branco);
+
+    border-color: var(--vinho);
+}
+
+.button-danger:hover {
+    background: var(--vermelho);
+
+    color: var(--branco);
+}
+
+.form-actions {
+    display: flex;
+
+    flex-wrap: wrap;
+
+    gap: 10px;
+
+    margin-top: 25px;
+}
+
+/* =========================================================
+   STATUS
+   ========================================================= */
+
+.status {
+    min-height: 1.5em;
+
+    color: var(--muted);
+}
+
+.status.error {
+    color: #D98989;
+}
+
+/* =========================================================
+   LISTAGEM
+   ========================================================= */
+
+.list-heading {
+    display: flex;
+
+    align-items: center;
+
+    justify-content: space-between;
+
+    gap: 20px;
+}
+
+.table-container {
+    overflow-x: auto;
+}
+
+table {
+    width: 100%;
+
+    min-width: 950px;
+
+    border-collapse: collapse;
+}
+
+th,
+td {
+    padding: 12px;
+
+    text-align: left;
+
+    border-bottom: 1px solid rgba(201, 166, 70, 0.18);
+}
+
+th {
+    background: #080807;
+
+    color: var(--dourado);
+
+    letter-spacing: 0.05em;
+}
+
+td {
+    color: var(--branco);
+}
+
+tr:hover td {
+    background: rgba(201, 166, 70, 0.05);
+}
+
+/*
+   CAPAS MAIORES NA LISTAGEM
+*/
+
+.capa-tabela {
+    display: block;
+
+    width: 95px;
+    height: 135px;
+
+    object-fit: contain;
+    background: #080807;
+
+    border: 1px solid rgba(201, 166, 70, 0.5);
+
+    box-shadow:
+        0 5px 15px rgba(0, 0, 0, 0.4);
+}
+
+td button {
+    margin: 3px;
+}
+
+/* =========================================================
+   RODAPÉ
+   ========================================================= */
+
+footer {
+    padding: 20px;
+
+    background: #080807;
+
+    color: var(--creme);
+
+    text-align: center;
+
+    border-top: 1px solid var(--borda);
+}
+
+footer p {
+    margin: 0;
+}
+
+/* =========================================================
+   RESPONSIVO
+   ========================================================= */
+
+@media (max-width: 750px) {
+
+    .form-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .form-group-wide {
+        grid-column: auto;
+    }
+
+    .search-row {
+        flex-direction: column;
+
+        align-items: stretch;
+    }
+
+    .list-heading {
+        flex-direction: column;
+
+        align-items: flex-start;
+    }
+
+    .menu-links {
+        flex-direction: column;
+    }
+}

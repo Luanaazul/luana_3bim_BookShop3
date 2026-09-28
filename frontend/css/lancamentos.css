@@ -1,0 +1,1082 @@
+/* =========================================================
+   BOOKSHOP - LANÇAMENTOS
+   ========================================================= */
+
+
+/* =========================================================
+   VARIÁVEIS
+   ========================================================= */
+
+:root {
+
+    --preto: #11100e;
+
+    --preto-textura: #181714;
+
+    --preto-card: #1d1a16;
+
+    --preto-input: #0d0d0c;
+
+    --dourado: #bda052;
+
+    --dourado-claro: #d5bf86;
+
+    --amarelo: #d8b84f;
+
+    --marrom: #805c38;
+
+    --marrom-medio: #6b4a2e;
+
+    --vinho: #5b2c32;
+
+    --vermelho: #8b2626;
+
+    --bege: #d5bf86;
+
+    --branco: #f5f1e7;
+
+    --cinza: #b7b0a4;
+
+    --linha: rgba(189, 160, 82, 0.28);
+
+    --linha-fraca: rgba(189, 160, 82, 0.14);
+
+}
+
+
+/* =========================================================
+   RESET
+   ========================================================= */
+
+* {
+    box-sizing: border-box;
+}
+
+
+html {
+    min-height: 100%;
+}
+
+
+body {
+
+    margin: 0;
+
+    min-height: 100vh;
+
+    display: flex;
+
+    flex-direction: column;
+
+    background:
+        radial-gradient(
+            circle at 50% 0%,
+            #272119 0%,
+            var(--preto) 48%,
+            #0d0d0c 100%
+        );
+
+    color: var(--branco);
+
+    font-family:
+        Georgia,
+        "Times New Roman",
+        serif;
+
+    line-height: 1.5;
+
+}
+
+
+/* =========================================================
+   CABEÇALHO
+   ========================================================= */
+
+.site-header {
+
+    width: 100%;
+
+    border-bottom: 1px solid var(--linha);
+
+    background: rgba(10, 10, 9, 0.96);
+
+}
+
+
+.header-content {
+
+    width: min(1180px, 92%);
+
+    margin: 0 auto;
+
+    padding: 42px 0 32px;
+
+}
+
+
+.eyebrow {
+
+    margin: 0 0 8px;
+
+    color: var(--dourado);
+
+    font-size: 0.8rem;
+
+    font-weight: bold;
+
+    letter-spacing: 0.28em;
+
+}
+
+
+.site-header h1 {
+
+    margin: 0;
+
+    color: var(--branco);
+
+    font-size: clamp(2rem, 4vw, 3.4rem);
+
+    line-height: 1.1;
+
+}
+
+
+.header-description {
+
+    margin: 12px 0 0;
+
+    color: var(--cinza);
+
+    font-size: 1rem;
+
+}
+
+
+/* =========================================================
+   MENU
+   ========================================================= */
+
+.site-nav {
+
+    width: 100%;
+
+    background: #090909;
+
+    border-bottom: 1px solid var(--linha);
+
+}
+
+
+.site-nav ul {
+
+    width: min(1180px, 92%);
+
+    min-height: 56px;
+
+    margin: 0 auto;
+
+    padding: 0;
+
+    display: flex;
+
+    align-items: stretch;
+
+    list-style: none;
+
+}
+
+
+.site-nav li {
+
+    flex: 1;
+
+    display: flex;
+
+}
+
+
+.site-nav a {
+
+    width: 100%;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    padding: 15px 20px;
+
+    color: var(--branco);
+
+    text-decoration: none;
+
+    font-weight: bold;
+
+    letter-spacing: 0.04em;
+
+    border-left: 1px solid rgba(189, 160, 82, 0.12);
+
+    transition:
+        background 0.2s ease,
+        color 0.2s ease;
+
+}
+
+
+.site-nav li:last-child a {
+
+    border-right: 1px solid rgba(189, 160, 82, 0.12);
+
+}
+
+
+.site-nav a:hover {
+
+    background: var(--dourado);
+
+    color: #11100e;
+
+}
+
+
+/* =========================================================
+   CONTEÚDO PRINCIPAL
+   ========================================================= */
+
+main {
+
+    width: min(1180px, 92%);
+
+    margin: 0 auto;
+
+    padding: 36px 0 60px;
+
+}
+
+
+.page-layout {
+
+    display: grid;
+
+    grid-template-columns: minmax(0, 1fr) 280px;
+
+    gap: 22px;
+
+    align-items: start;
+
+}
+
+
+/* =========================================================
+   PAINÉIS
+   ========================================================= */
+
+.form-panel,
+.help-panel,
+.list-panel {
+
+    background:
+        linear-gradient(
+            145deg,
+            rgba(34, 30, 25, 0.98),
+            rgba(20, 19, 17, 0.98)
+        );
+
+    border: 1px solid var(--linha);
+
+    box-shadow:
+        0 12px 35px rgba(0, 0, 0, 0.28);
+
+}
+
+
+.form-panel {
+
+    padding: 30px;
+
+}
+
+
+.help-panel {
+
+    padding: 28px;
+
+}
+
+
+.list-panel {
+
+    grid-column: 1 / -1;
+
+    padding: 30px;
+
+}
+
+
+/* =========================================================
+   TÍTULOS DOS PAINÉIS
+   ========================================================= */
+
+.panel-title {
+
+    display: flex;
+
+    align-items: flex-start;
+
+    gap: 14px;
+
+}
+
+
+.title-line {
+
+    width: 4px;
+
+    min-width: 4px;
+
+    height: 54px;
+
+    margin-top: 3px;
+
+    background: var(--dourado);
+
+}
+
+
+.section-label {
+
+    margin: 0 0 5px;
+
+    color: var(--dourado);
+
+    font-size: 0.72rem;
+
+    font-weight: bold;
+
+    letter-spacing: 0.18em;
+
+}
+
+
+.panel-title h2,
+.help-panel h2,
+.list-panel h2 {
+
+    margin: 0;
+
+    color: var(--dourado-claro);
+
+    line-height: 1.2;
+
+}
+
+
+.panel-title h2 {
+
+    font-size: 1.7rem;
+
+}
+
+
+.form-description {
+
+    margin: 14px 0 25px;
+
+    color: var(--cinza);
+
+}
+
+
+/* =========================================================
+   FORMULÁRIO
+   ========================================================= */
+
+#lancamento-form {
+
+    width: 100%;
+
+}
+
+
+/* Linhas do formulário */
+
+.form-grid {
+
+    display: grid;
+
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+
+    gap: 22px;
+
+}
+
+
+.primeira-linha {
+
+    margin-bottom: 22px;
+
+}
+
+
+.segunda-linha {
+
+    margin-bottom: 0;
+
+}
+
+
+/* =========================================================
+   CAMPOS
+   ========================================================= */
+
+.campo {
+
+    min-width: 0;
+
+}
+
+
+.campo label {
+
+    display: block;
+
+    margin: 0 0 8px;
+
+    color: var(--dourado-claro);
+
+    font-size: 0.95rem;
+
+    font-weight: bold;
+
+    letter-spacing: 0.02em;
+
+}
+
+
+/* =========================================================
+   INPUTS E SELECT
+   ========================================================= */
+
+input,
+select,
+button {
+
+    font: inherit;
+
+}
+
+
+input,
+select {
+
+    width: 100%;
+
+    min-height: 44px;
+
+    padding: 10px 13px;
+
+    background: var(--preto-input);
+
+    color: var(--branco);
+
+    border: 1px solid rgba(189, 160, 82, 0.32);
+
+    border-radius: 2px;
+
+    outline: none;
+
+    transition:
+        border-color 0.2s ease,
+        box-shadow 0.2s ease;
+
+}
+
+
+input::placeholder {
+
+    color: #777168;
+
+}
+
+
+input:focus,
+select:focus {
+
+    border-color: var(--dourado);
+
+    box-shadow:
+        0 0 0 2px rgba(189, 160, 82, 0.10);
+
+}
+
+
+select {
+
+    cursor: pointer;
+
+}
+
+
+select option {
+
+    background: #171613;
+
+    color: var(--branco);
+
+}
+
+
+/* =========================================================
+   ID + PROCURAR
+   ========================================================= */
+
+.campo-com-botao {
+
+    display: flex;
+
+    align-items: stretch;
+
+    gap: 10px;
+
+}
+
+
+.campo-com-botao input {
+
+    min-width: 0;
+
+    flex: 1;
+
+}
+
+
+.campo-com-botao button {
+
+    flex-shrink: 0;
+
+}
+
+
+/* =========================================================
+   BOTÕES
+   ========================================================= */
+
+button {
+
+    min-height: 44px;
+
+    padding: 10px 18px;
+
+    background: var(--dourado);
+
+    color: #17130e;
+
+    border: 1px solid var(--dourado);
+
+    border-radius: 2px;
+
+    cursor: pointer;
+
+    font-weight: bold;
+
+    letter-spacing: 0.02em;
+
+    transition:
+        background 0.2s ease,
+        border-color 0.2s ease,
+        color 0.2s ease,
+        transform 0.15s ease;
+
+}
+
+
+button:hover {
+
+    background: var(--dourado-claro);
+
+    border-color: var(--dourado-claro);
+
+}
+
+
+button:active {
+
+    transform: translateY(1px);
+
+}
+
+
+button:disabled {
+
+    opacity: 0.5;
+
+    cursor: not-allowed;
+
+}
+
+
+/* =========================================================
+   BOTÃO SECUNDÁRIO
+   ========================================================= */
+
+.button-secondary {
+
+    background: transparent;
+
+    color: var(--dourado-claro);
+
+    border: 1px solid var(--dourado);
+
+}
+
+
+.button-secondary:hover {
+
+    background: var(--dourado);
+
+    color: #17130e;
+
+}
+
+
+/* =========================================================
+   BOTÃO EXCLUIR
+   ========================================================= */
+
+.button-danger {
+
+    background: var(--vinho);
+
+    color: var(--branco);
+
+    border-color: var(--vinho);
+
+}
+
+
+.button-danger:hover {
+
+    background: var(--vermelho);
+
+    border-color: var(--vermelho);
+
+}
+
+
+/* =========================================================
+   BOTÕES DO FORMULÁRIO
+   ========================================================= */
+
+.form-actions {
+
+    display: flex;
+
+    flex-wrap: wrap;
+
+    gap: 10px;
+
+    margin-top: 24px;
+
+    padding-top: 22px;
+
+    border-top: 1px solid var(--linha-fraca);
+
+}
+
+
+.form-actions button {
+
+    min-width: 110px;
+
+}
+
+
+/* =========================================================
+   MENSAGENS
+   ========================================================= */
+
+.status {
+
+    min-height: 24px;
+
+    margin: 18px 0 0;
+
+    color: var(--cinza);
+
+    font-size: 0.92rem;
+
+}
+
+
+.status.error {
+
+    color: #d58a7e;
+
+}
+
+
+/* =========================================================
+   PAINEL DO RELACIONAMENTO
+   ========================================================= */
+
+.help-panel {
+
+    min-height: 100%;
+
+}
+
+
+.help-panel h2 {
+
+    margin-bottom: 22px;
+
+    font-size: 1.45rem;
+
+}
+
+
+.help-panel p {
+
+    margin: 14px 0;
+
+    color: var(--cinza);
+
+}
+
+
+.help-panel strong {
+
+    color: var(--dourado-claro);
+
+}
+
+
+.relation-symbol {
+
+    width: 100%;
+
+    padding: 18px 10px;
+
+    margin: 10px 0 22px;
+
+    text-align: center;
+
+    color: var(--dourado);
+
+    background: #11100e;
+
+    border-top: 1px solid var(--linha);
+
+    border-bottom: 1px solid var(--linha);
+
+    font-size: 1.7rem;
+
+    font-weight: bold;
+
+    letter-spacing: 0.15em;
+
+}
+
+
+/* =========================================================
+   LISTAGEM
+   ========================================================= */
+
+.list-heading {
+
+    display: flex;
+
+    align-items: flex-end;
+
+    justify-content: space-between;
+
+    gap: 20px;
+
+    margin-bottom: 22px;
+
+}
+
+
+.list-heading h2 {
+
+    font-size: 1.6rem;
+
+}
+
+
+.list-heading .status {
+
+    margin: 5px 0 0;
+
+}
+
+
+/* =========================================================
+   TABELA
+   ========================================================= */
+
+.table-wrapper {
+
+    width: 100%;
+
+    overflow-x: auto;
+
+}
+
+
+table {
+
+    width: 100%;
+
+    min-width: 650px;
+
+    border-collapse: collapse;
+
+}
+
+
+th,
+td {
+
+    padding: 14px 12px;
+
+    text-align: left;
+
+    border-bottom: 1px solid var(--linha-fraca);
+
+}
+
+
+th {
+
+    background: rgba(189, 160, 82, 0.08);
+
+    color: var(--dourado);
+
+    font-size: 0.82rem;
+
+    text-transform: uppercase;
+
+    letter-spacing: 0.07em;
+
+}
+
+
+td {
+
+    color: var(--branco);
+
+}
+
+
+tbody tr {
+
+    transition: background 0.2s ease;
+
+}
+
+
+tbody tr:hover {
+
+    background: rgba(189, 160, 82, 0.06);
+
+}
+
+
+td:last-child {
+
+    white-space: nowrap;
+
+}
+
+
+td button {
+
+    min-height: 36px;
+
+    padding: 7px 12px;
+
+    font-size: 0.88rem;
+
+}
+
+
+.empty-row td {
+
+    padding: 30px 15px;
+
+    color: var(--cinza);
+
+    text-align: center;
+
+}
+
+
+/* =========================================================
+   RODAPÉ
+   ========================================================= */
+
+footer {
+
+    width: 100%;
+
+    margin-top: auto;
+
+    padding: 22px 20px;
+
+    background: #090909;
+
+    border-top: 1px solid var(--linha);
+
+    color: var(--dourado-claro);
+
+    text-align: center;
+
+}
+
+
+footer p {
+
+    margin: 0;
+
+    font-size: 0.85rem;
+
+    letter-spacing: 0.04em;
+
+}
+
+
+/* =========================================================
+   RESPONSIVIDADE
+   ========================================================= */
+
+@media (max-width: 850px) {
+
+    .page-layout {
+
+        grid-template-columns: 1fr;
+
+    }
+
+
+    .help-panel {
+
+        min-height: auto;
+
+    }
+
+
+    .list-panel {
+
+        grid-column: auto;
+
+    }
+
+}
+
+
+@media (max-width: 650px) {
+
+    .header-content {
+
+        padding: 30px 0 25px;
+
+    }
+
+
+    .site-nav ul {
+
+        width: 100%;
+
+    }
+
+
+    .site-nav a {
+
+        padding: 13px 8px;
+
+        font-size: 0.85rem;
+
+    }
+
+
+    main {
+
+        width: 94%;
+
+        padding-top: 25px;
+
+    }
+
+
+    .form-panel,
+    .help-panel,
+    .list-panel {
+
+        padding: 20px;
+
+    }
+
+
+    .form-grid {
+
+        grid-template-columns: 1fr;
+
+        gap: 18px;
+
+    }
+
+
+    .primeira-linha {
+
+        margin-bottom: 18px;
+
+    }
+
+
+    .campo-com-botao {
+
+        flex-direction: column;
+
+    }
+
+
+    .campo-com-botao button {
+
+        width: 100%;
+
+    }
+
+
+    .form-actions {
+
+        flex-direction: column;
+
+    }
+
+
+    .form-actions button {
+
+        width: 100%;
+
+    }
+
+
+    .list-heading {
+
+        align-items: flex-start;
+
+        flex-direction: column;
+
+    }
+
+
+    .list-heading button {
+
+        width: 100%;
+
+    }
+
+}

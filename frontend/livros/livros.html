@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>BookShop | Livros</title>
+  <link rel="stylesheet" href="../css/livros.css">
+</head>
+<body>
+  <header>
+    <h1>BOOKSHOP</h1>
+    <p>Catálogo e gerenciamento de livros</p>
+  </header>
+
+  <nav aria-label="Navegação principal">
+    <ul>
+      <li><a href="../menu/index.html">Menu</a></li>
+      <li><a href="../lancamentos/lancamentos.html">Lançamentos</a></li>
+      <li><a href="../cargos/cargos.html">Cargos</a></li>
+      <li><a href="../pessoas/pessoas.html">Pessoas</a></li>
+    </ul>
+  </nav>
+
+  <main>
+    <section class="intro-section" aria-labelledby="titulo-livros">
+      <h2 id="titulo-livros">Gerenciamento de livros</h2>
+      <p>Cadastre, consulte, altere, exclua e associe uma imagem ao livro.</p>
+    </section>
+
+    <section class="form-section" aria-labelledby="titulo-formulario">
+      <h2 id="titulo-formulario">Dados do livro</h2>
+
+      <form id="livro-form">
+        <div class="search-row">
+          <div class="form-group">
+            <label for="id_livro">ID do livro</label>
+            <input type="number" id="id_livro" min="1" step="1" placeholder="Ex.: 16">
+          </div>
+          <button type="button" id="btProcure">Procurar</button>
+          <button type="button" id="btInserir" hidden>Inserir</button>
+          <button type="button" id="btAlterar" hidden>Alterar</button>
+          <button type="button" id="btExcluir" class="button-danger" hidden>Excluir</button>
+        </div>
+
+        <div class="form-grid">
+          <div class="form-group form-group-wide">
+            <label for="titulo">Título</label>
+            <input type="text" id="titulo" maxlength="200" required>
+          </div>
+
+          <div class="form-group">
+            <label for="autor">Autor</label>
+            <input type="text" id="autor" maxlength="150" required>
+          </div>
+
+          <div class="form-group">
+            <label for="isbn">ISBN</label>
+            <input type="text" id="isbn" maxlength="20">
+          </div>
+
+          <div class="form-group">
+            <label for="editora">Editora</label>
+            <input type="text" id="editora" maxlength="100">
+          </div>
+
+          <div class="form-group">
+            <label for="genero_id">Gênero</label>
+            <select id="genero_id" required>
+              <option value="">Carregando gêneros...</option>
+            </select>
+          </div>
+
+          <div class="form-group">
+            <label for="paginas">Páginas</label>
+            <input type="number" id="paginas" min="1" required>
+          </div>
+
+          <div class="form-group">
+            <label for="ano">Ano</label>
+            <input type="number" id="ano" min="1">
+          </div>
+
+          <div class="form-group">
+            <label for="preco">Preço</label>
+            <input type="number" id="preco" min="0" step="0.01" required>
+          </div>
+
+          <div class="form-group">
+            <label for="estoque">Estoque</label>
+            <input type="number" id="estoque" min="0" required>
+          </div>
+
+          <div class="form-group form-group-wide">
+            <label for="sinopse">Sinopse</label>
+            <textarea id="sinopse" rows="4"></textarea>
+          </div>
+
+          <div class="form-group form-group-wide image-area">
+            <label for="imagem">Imagem do livro</label>
+            <input type="file" id="imagem" accept="image/png,image/jpeg,image/webp">
+            <small>A imagem é salva localmente no servidor e não fica armazenada no PostgreSQL.</small>
+            <img id="imagem-preview" alt="Pré-visualização da capa do livro" hidden>
+          </div>
+        </div>
+
+        <div class="form-actions">
+          <button type="button" id="btSalvar" hidden>Salvar</button>
+          <button type="button" id="btCancelar" class="button-secondary" hidden>Cancelar</button>
+        </div>
+      </form>
+
+      <p id="divAviso" class="status" role="status">Informe o ID do livro e clique em Procurar.</p>
+    </section>
+
+    <section class="list-section" aria-labelledby="titulo-lista">
+      <div class="list-heading">
+        <div>
+          <h2 id="titulo-lista">Livros cadastrados</h2>
+          <p id="list-status" class="status" role="status">Carregando...</p>
+        </div>
+        <button type="button" id="btn-atualizar" class="button-secondary">Atualizar lista</button>
+      </div>
+
+      <div class="table-container">
+        <table id="livros-table">
+          <thead>
+            <tr>
+              <th>Capa</th>
+              <th>Título</th>
+              <th>Autor</th>
+              <th>Gênero</th>
+              <th>Preço</th>
+              <th>Estoque</th>
+              <th>Ações</th>
+            </tr>
+          </thead>
+          <tbody id="livros-tbody"></tbody>
+        </table>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <p>DW1 2026 | Luana Cazarin | 3º Projeto</p>
+  </footer>
+
+  <script src="../js/livros.js"></script>
+</body>
+</html>

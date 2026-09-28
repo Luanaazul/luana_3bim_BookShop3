@@ -1,0 +1,428 @@
+/* =========================================================
+   BOOKSHOP - CRUD DE CARGOS
+   ========================================================= */
+
+:root {
+    --preto: #11100E;
+    --preto-secundario: #1A1917;
+
+    --dourado: #C9A646;
+    --dourado-claro: #E0C56E;
+    --amarelo: #D6A928;
+
+    --vermelho: #8B2626;
+    --vinho: #5B2C32;
+
+    --marrom: #76533A;
+    --bege: #D5BF86;
+    --creme: #F2E7CC;
+
+    --verde-oliva: #475842;
+
+    --branco: #F5F1E8;
+
+    --muted: #B8AF9D;
+    --borda: rgba(201, 166, 70, 0.4);
+}
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+
+    background:
+        radial-gradient(
+            circle at top,
+            rgba(201, 166, 70, 0.05),
+            transparent 45%
+        ),
+        var(--preto);
+
+    color: var(--branco);
+
+    font-family: Georgia, "Times New Roman", serif;
+
+    line-height: 1.5;
+}
+
+/* =========================================================
+   CABEÇALHO
+   ========================================================= */
+
+header {
+    padding: 35px 5% 25px;
+
+    background: var(--preto-secundario);
+
+    border-bottom: 1px solid var(--borda);
+}
+
+header h1 {
+    margin: 0;
+
+    color: var(--dourado);
+
+    font-size: clamp(2.2rem, 5vw, 4rem);
+
+    letter-spacing: 0.1em;
+}
+
+/* =========================================================
+   NAV
+   ========================================================= */
+
+nav {
+    background: #050505;
+
+    border-bottom: 1px solid var(--borda);
+}
+
+nav ul {
+    display: flex;
+
+    margin: 0;
+    padding: 0;
+
+    list-style: none;
+}
+
+nav li {
+    flex: 1;
+}
+
+nav a {
+    display: block;
+
+    padding: 15px;
+
+    color: var(--branco);
+
+    text-align: center;
+
+    text-decoration: none;
+
+    font-weight: bold;
+
+    letter-spacing: 0.07em;
+
+    border-right: 1px solid rgba(201, 166, 70, 0.15);
+}
+
+nav a:hover {
+    background: var(--dourado);
+
+    color: var(--preto);
+}
+
+/* =========================================================
+   MAIN
+   ========================================================= */
+
+main {
+    max-width: 1150px;
+
+    margin: auto;
+
+    padding: 35px 25px 60px;
+}
+
+.container-master {
+    display: block;
+}
+
+/* =========================================================
+   PAINÉIS
+   ========================================================= */
+
+.form-esquerda,
+.help-cargo,
+.lista-cargos {
+    margin-bottom: 25px;
+
+    padding: 25px;
+
+    background:
+        linear-gradient(
+            145deg,
+            rgba(118, 83, 58, 0.12),
+            rgba(26, 25, 23, 0.98)
+        );
+
+    border: 1px solid var(--borda);
+
+    border-radius: 4px;
+
+    box-shadow:
+        0 10px 30px rgba(0, 0, 0, 0.25);
+}
+
+.lista-cargos {
+    width: 100%;
+}
+
+h2,
+h3 {
+    color: var(--dourado);
+
+    letter-spacing: 0.07em;
+}
+
+/* =========================================================
+   ID + PROCURAR + NOME DO CARGO
+   ========================================================= */
+
+.linha-id {
+    display: grid;
+
+    grid-template-columns: 140px auto minmax(250px, 1fr);
+
+    align-items: end;
+
+    gap: 12px;
+
+    margin-top: 15px;
+}
+
+.linha-id input {
+    width: 100%;
+}
+
+/* =========================================================
+   CAMPOS
+   ========================================================= */
+
+label {
+    display: block;
+
+    margin-bottom: 7px;
+
+    color: var(--bege);
+
+    font-weight: bold;
+
+    letter-spacing: 0.04em;
+}
+
+input {
+    padding: 11px 13px;
+
+    background: #0B0B0A;
+
+    color: var(--branco);
+
+    border: 1px solid rgba(201, 166, 70, 0.35);
+
+    border-radius: 3px;
+
+    outline: none;
+}
+
+input:focus {
+    border-color: var(--dourado);
+
+    box-shadow:
+        0 0 0 2px rgba(201, 166, 70, 0.12);
+}
+
+/* =========================================================
+   BOTÕES
+   ========================================================= */
+
+button {
+    padding: 11px 18px;
+
+    background: var(--dourado);
+
+    color: var(--preto);
+
+    border: 1px solid var(--dourado);
+
+    border-radius: 3px;
+
+    cursor: pointer;
+
+    font-weight: bold;
+
+    transition:
+        background-color 0.2s ease,
+        color 0.2s ease,
+        transform 0.2s ease;
+}
+
+button:hover {
+    background: var(--dourado-claro);
+
+    transform: translateY(-1px);
+}
+
+button:disabled {
+    opacity: 0.45;
+
+    cursor: not-allowed;
+
+    transform: none;
+}
+
+.button-secondary {
+    background: transparent;
+
+    color: var(--dourado);
+
+    border-color: var(--dourado);
+}
+
+.button-secondary:hover {
+    background: var(--dourado);
+
+    color: var(--preto);
+}
+
+.button-danger {
+    background: var(--vinho);
+
+    color: var(--branco);
+
+    border-color: var(--vinho);
+}
+
+.button-danger:hover {
+    background: var(--vermelho);
+
+    color: var(--branco);
+}
+
+/* =========================================================
+   BOTÕES DE AÇÃO
+   ========================================================= */
+
+.botoes-acao {
+    display: flex;
+
+    flex-wrap: wrap;
+
+    gap: 10px;
+
+    margin-top: 22px;
+
+    padding-top: 20px;
+
+    border-top: 1px solid rgba(201, 166, 70, 0.15);
+}
+
+/* =========================================================
+   STATUS
+   ========================================================= */
+
+.status {
+    min-height: 1.5em;
+
+    color: var(--muted);
+}
+
+.status.error {
+    color: #D98989;
+}
+
+/* =========================================================
+   LISTAGEM
+   ========================================================= */
+
+.lista-cargos {
+    overflow-x: auto;
+}
+
+#outputSaida {
+    margin-top: 20px;
+}
+
+.cargo-item {
+    display: flex;
+
+    align-items: center;
+
+    justify-content: space-between;
+
+    gap: 20px;
+
+    padding: 14px 0;
+
+    border-top: 1px solid rgba(201, 166, 70, 0.18);
+}
+
+.cargo-item strong {
+    color: var(--dourado);
+}
+
+/* =========================================================
+   TABELAS
+   ========================================================= */
+
+table {
+    width: 100%;
+
+    border-collapse: collapse;
+}
+
+th,
+td {
+    padding: 12px;
+
+    text-align: left;
+
+    border-bottom: 1px solid rgba(201, 166, 70, 0.18);
+}
+
+th {
+    background: #080807;
+
+    color: var(--dourado);
+}
+
+tr:hover td {
+    background: rgba(201, 166, 70, 0.05);
+}
+
+/* =========================================================
+   RODAPÉ
+   ========================================================= */
+
+footer {
+    padding: 20px;
+
+    background: #080807;
+
+    color: var(--creme);
+
+    text-align: center;
+
+    border-top: 1px solid var(--borda);
+}
+
+/* =========================================================
+   RESPONSIVO
+   ========================================================= */
+
+@media (max-width: 700px) {
+
+    .linha-id {
+        grid-template-columns: 1fr;
+    }
+
+    .botoes-acao {
+        flex-direction: column;
+    }
+
+    .botoes-acao button {
+        width: 100%;
+    }
+
+    nav ul {
+        flex-wrap: wrap;
+    }
+
+    nav li {
+        flex: 1 1 50%;
+    }
+}

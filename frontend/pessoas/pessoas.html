@@ -1,0 +1,445 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>BookShop | Pessoas</title>
+
+    <link rel="stylesheet" href="../css/pessoas.css">
+</head>
+
+<body>
+
+    <header>
+        <h1>BOOKSHOP</h1>
+        <p>Cadastro de Pessoas</p>
+    </header>
+
+    <nav aria-label="Navegação principal">
+        <ul>
+            <li><a href="../menu/index.html">Menu</a></li>
+            <li><a href="../livros/livros.html">Livros</a></li>
+            <li><a href="../lancamentos/lancamentos.html">Lançamentos</a></li>
+            <li><a href="../cargos/cargos.html">Cargos</a></li>
+        </ul>
+    </nav>
+
+    <main>
+
+        <section class="intro" aria-labelledby="titulo-pessoas">
+            <h2 id="titulo-pessoas">Pessoas</h2>
+
+            <p>
+                Cadastre e gerencie as pessoas relacionadas ao BookShop.
+                Uma pessoa pode ser apenas um cliente/funcionário
+                ou possuir os dois tipos de relacionamento.
+            </p>
+        </section>
+
+
+        <!-- =====================================================
+             CRUD PRINCIPAL DE PESSOAS
+        ====================================================== -->
+
+        <section class="crud-card" aria-labelledby="titulo-cadastro">
+
+            <h2 id="titulo-cadastro">Cadastro de Pessoas</h2>
+
+            <div class="search-row">
+
+                <div class="search-field">
+                    <label for="pessoa-busca">CPF para pesquisar</label>
+
+                    <input
+                        type="text"
+                        id="pessoa-busca"
+                        maxlength="14"
+                        placeholder="Ex.: 111.111.111-01"
+                    >
+                </div>
+
+                <button type="button" id="pessoa-procurar">
+                    Procurar
+                </button>
+
+                <button type="button" id="pessoa-inserir">
+                    Inserir
+                </button>
+
+                <button type="button" id="pessoa-alterar" hidden>
+                    Alterar
+                </button>
+
+                <button
+                    type="button"
+                    id="pessoa-excluir"
+                    class="button-danger"
+                    hidden
+                >
+                    Excluir
+                </button>
+
+            </div>
+
+
+            <form id="pessoa-form">
+
+                <fieldset>
+
+                    <legend>Dados da Pessoa</legend>
+
+                    <div class="form-grid">
+
+                        <div>
+                            <label for="pessoa-cpf">
+                                CPF
+                            </label>
+
+                            <input
+                                type="text"
+                                id="pessoa-cpf"
+                                maxlength="14"
+                                placeholder="111.111.111-01"
+                                required
+                            >
+                        </div>
+
+
+                        <div>
+                            <label for="pessoa-nome">
+                                Nome
+                            </label>
+
+                            <input
+                                type="text"
+                                id="pessoa-nome"
+                                maxlength="100"
+                                required
+                            >
+                        </div>
+
+
+                        <div>
+                            <label for="pessoa-nascimento">
+                                Data de nascimento
+                            </label>
+
+                            <input
+                                type="date"
+                                id="pessoa-nascimento"
+                                required
+                            >
+                        </div>
+
+
+                        <div>
+                            <label for="pessoa-email">
+                                E-mail
+                            </label>
+
+                            <input
+                                type="email"
+                                id="pessoa-email"
+                                maxlength="150"
+                                required
+                            >
+                        </div>
+
+
+                        <div class="wide">
+                            <label for="pessoa-endereco">
+                                Endereço
+                            </label>
+
+                            <input
+                                type="text"
+                                id="pessoa-endereco"
+                                maxlength="200"
+                                required
+                            >
+                        </div>
+
+
+                        <div>
+                            <label for="pessoa-senha">
+                                Senha
+                            </label>
+
+                            <input
+                                type="password"
+                                id="pessoa-senha"
+                                maxlength="100"
+                                required
+                            >
+                        </div>
+
+                    </div>
+
+                </fieldset>
+
+
+                <!-- =================================================
+                     TIPO DE PESSOA
+                ================================================== -->
+
+                <fieldset>
+
+                    <legend>Tipo de cadastro</legend>
+
+                    <p>
+                        Uma pessoa pode ser cliente, funcionário ou os dois.
+                    </p>
+
+                    <div class="tipo-pessoa">
+
+                        <label class="tipo-option">
+
+                            <input
+                                type="checkbox"
+                                id="checkboxCliente"
+                            >
+
+                            <span>Cliente</span>
+
+                        </label>
+
+
+                        <label class="tipo-option">
+
+                            <input
+                                type="checkbox"
+                                id="checkboxFuncionario"
+                            >
+
+                            <span>Funcionário</span>
+
+                        </label>
+
+                    </div>
+
+                </fieldset>
+
+
+                <!-- =================================================
+                     DADOS DO CLIENTE
+                ================================================== -->
+
+                <fieldset
+                    id="dadosCliente"
+                    class="dados-especificos"
+                    hidden
+                >
+
+                    <legend>Dados do Cliente</legend>
+
+                    <div class="form-grid">
+
+                        <div>
+
+                            <label for="renda_cliente">
+                                Renda mensal
+                            </label>
+
+                            <input
+                                type="number"
+                                id="renda_cliente"
+                                min="0"
+                                step="0.01"
+                                placeholder="Ex.: 2500.00"
+                            >
+
+                        </div>
+
+
+                        <div>
+
+                            <label for="data_cadastro_cliente">
+                                Data de cadastro
+                            </label>
+
+                            <input
+                                type="date"
+                                id="data_cadastro_cliente"
+                            >
+
+                        </div>
+
+                    </div>
+
+                </fieldset>
+
+
+                <!-- =================================================
+                     DADOS DO FUNCIONÁRIO
+                ================================================== -->
+
+                <fieldset
+                    id="dadosFuncionario"
+                    class="dados-especificos"
+                    hidden
+                >
+
+                    <legend>Dados do Funcionário</legend>
+
+                    <div class="form-grid">
+
+                        <div>
+
+                            <label for="cargo_id_cargo">
+                                Cargo
+                            </label>
+
+                            <select id="cargo_id_cargo">
+
+                                <option value="">
+                                    Selecione um cargo
+                                </option>
+
+                            </select>
+
+                        </div>
+
+
+                        <div>
+
+                            <label for="salario_funcionario">
+                                Salário
+                            </label>
+
+                            <input
+                                type="number"
+                                id="salario_funcionario"
+                                min="0"
+                                step="0.01"
+                                placeholder="Ex.: 3000.00"
+                            >
+
+                        </div>
+
+
+                        <div>
+
+                            <label for="porcentagem_comissao_funcionario">
+                                Comissão (%)
+                            </label>
+
+                            <input
+                                type="number"
+                                id="porcentagem_comissao_funcionario"
+                                min="0"
+                                max="100"
+                                step="0.01"
+                                placeholder="Ex.: 5"
+                            >
+
+                        </div>
+
+                    </div>
+
+                </fieldset>
+
+
+                <!-- =================================================
+                     BOTÕES
+                ================================================== -->
+
+                <div class="form-actions">
+
+                    <button
+                        type="button"
+                        id="pessoa-salvar"
+                        hidden
+                    >
+                        Salvar
+                    </button>
+
+                    <button
+                        type="button"
+                        id="pessoa-cancelar"
+                        class="button-secondary"
+                        hidden
+                    >
+                        Cancelar
+                    </button>
+
+                </div>
+
+            </form>
+
+
+            <p
+                id="pessoa-status"
+                class="status"
+                role="status"
+            >
+                Informe um CPF e clique em Procurar.
+            </p>
+
+        </section>
+
+
+        <!-- =====================================================
+             LISTA
+        ====================================================== -->
+
+        <section
+            class="list-section"
+            aria-labelledby="titulo-lista"
+        >
+
+            <h2 id="titulo-lista">
+                Pessoas cadastradas
+            </h2>
+
+            <p
+                id="pessoas-list-status"
+                class="status"
+            >
+                Carregando...
+            </p>
+
+            <div class="table-container">
+
+                <table>
+
+                    <thead>
+
+                        <tr>
+
+                            <th>CPF</th>
+                            <th>Nome</th>
+                            <th>Nascimento</th>
+                            <th>E-mail</th>
+                            <th>Tipo</th>
+
+                        </tr>
+
+                    </thead>
+
+                    <tbody id="pessoas-tbody"></tbody>
+
+                </table>
+
+            </div>
+
+        </section>
+
+    </main>
+
+
+    <footer>
+
+        <p>
+            DW1 2026 | Luana Cazarin | 3º Projeto
+        </p>
+
+    </footer>
+
+
+    <script src="../js/pessoas.js"></script>
+
+</body>
+
+</html>

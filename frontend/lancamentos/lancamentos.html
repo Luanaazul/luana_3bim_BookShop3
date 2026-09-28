@@ -1,0 +1,425 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>BookShop | Lançamentos</title>
+
+    <link
+        rel="stylesheet"
+        href="../css/lancamentos.css"
+    >
+
+</head>
+
+
+<body>
+
+    <!-- =====================================================
+         CABEÇALHO
+         ===================================================== -->
+
+    <header class="site-header">
+
+        <div class="header-content">
+
+            <p class="eyebrow">
+                BOOKSHOP
+            </p>
+
+            <h1>
+                Lançamentos
+            </h1>
+
+            <p class="header-description">
+                Cadastre e gerencie os lançamentos dos livros.
+            </p>
+
+        </div>
+
+    </header>
+
+
+    <!-- =====================================================
+         MENU
+         ===================================================== -->
+
+    <nav
+        class="site-nav"
+        aria-label="Navegação principal"
+    >
+
+        <ul>
+
+            <li>
+                <a href="../menu/index.html">
+                    Menu
+                </a>
+            </li>
+
+            <li>
+                <a href="../livros/livros.html">
+                    Livros
+                </a>
+            </li>
+
+            <li>
+                <a href="../cargos/cargos.html">
+                    Cargos
+                </a>
+            </li>
+
+            <li>
+                <a href="../pessoas/pessoas.html">
+                    Pessoas
+                </a>
+            </li>
+
+        </ul>
+
+    </nav>
+
+
+    <!-- =====================================================
+         CONTEÚDO PRINCIPAL
+         ===================================================== -->
+
+    <main class="page-layout">
+
+
+        <!-- =================================================
+             FORMULÁRIO DE LANÇAMENTO
+             ================================================= -->
+
+        <section
+            class="form-panel"
+            aria-labelledby="titulo-formulario"
+        >
+
+            <div class="panel-title">
+
+                <span class="title-line"></span>
+
+                <div>
+
+                    <p class="section-label">
+                        CADASTRO
+                    </p>
+
+                    <h2 id="titulo-formulario">
+                        Dados do lançamento
+                    </h2>
+
+                </div>
+
+            </div>
+
+
+            <p class="form-description">
+                Um livro pode ter no máximo um lançamento.
+            </p>
+
+
+            <form id="lancamento-form">
+
+
+                <!-- =========================================
+                     PRIMEIRA LINHA
+                     ID + LIVRO
+                     ========================================= -->
+
+                <div class="form-grid primeira-linha">
+
+
+                    <!-- ID DO LANÇAMENTO -->
+
+                    <div class="campo campo-id">
+
+                        <label for="id_lancamento">
+                            ID do lançamento
+                        </label>
+
+                        <div class="campo-com-botao">
+
+                            <input
+                                type="number"
+                                id="id_lancamento"
+                                min="1"
+                                step="1"
+                                placeholder="Ex.: 1"
+                            >
+
+                            <button
+                                type="button"
+                                id="btProcure"
+                            >
+                                Procurar
+                            </button>
+
+                        </div>
+
+                    </div>
+
+
+                    <!-- LIVRO -->
+
+                    <div class="campo campo-livro">
+
+                        <label for="livro_id_livro">
+                            Livro
+                        </label>
+
+                        <select
+                            id="livro_id_livro"
+                            required
+                        >
+
+                            <option value="">
+                                Carregando livros...
+                            </option>
+
+                        </select>
+
+                    </div>
+
+                </div>
+
+
+                <!-- =========================================
+                     SEGUNDA LINHA
+                     PAÍS + DATA
+                     ========================================= -->
+
+                <div class="form-grid segunda-linha">
+
+
+                    <!-- PAÍS -->
+
+                    <div class="campo">
+
+                        <label for="pais_lancamento">
+                            País de lançamento
+                        </label>
+
+                        <input
+                            type="text"
+                            id="pais_lancamento"
+                            maxlength="100"
+                            placeholder="Ex.: Brasil"
+                            required
+                        >
+
+                    </div>
+
+
+                    <!-- DATA -->
+
+                    <div class="campo">
+
+                        <label for="data_lancamento">
+                            Data de lançamento
+                        </label>
+
+                        <input
+                            type="date"
+                            id="data_lancamento"
+                            required
+                        >
+
+                    </div>
+
+                </div>
+
+
+                <!-- =========================================
+                     BOTÕES
+                     ========================================= -->
+
+                <div class="form-actions">
+
+
+                    <button
+                        type="button"
+                        id="btInserir"
+                        hidden
+                    >
+                        Inserir
+                    </button>
+
+
+                    <button
+                        type="button"
+                        id="btAlterar"
+                        hidden
+                    >
+                        Alterar
+                    </button>
+
+
+                    <button
+                        type="button"
+                        id="btExcluir"
+                        class="button-danger"
+                        hidden
+                    >
+                        Excluir
+                    </button>
+
+
+                    <button
+                        type="button"
+                        id="btSalvar"
+                        hidden
+                    >
+                        Salvar
+                    </button>
+
+
+                    <button
+                        type="button"
+                        id="btCancelar"
+                        class="button-secondary"
+                        hidden
+                    >
+                        Cancelar
+                    </button>
+
+
+                </div>
+
+            </form>
+
+
+            <!-- MENSAGEM DO CRUD -->
+
+            <p
+                id="divAviso"
+                class="status"
+                role="status"
+            >
+                Informe o ID do lançamento e clique em Procurar.
+            </p>
+
+        </section>
+
+
+
+        <!-- =================================================
+             LISTAGEM
+             ================================================= -->
+
+        <section
+            class="list-panel"
+            aria-labelledby="titulo-lista"
+        >
+
+            <div class="list-heading">
+
+
+                <div>
+
+                    <p class="section-label">
+                        REGISTROS
+                    </p>
+
+                    <h2 id="titulo-lista">
+                        Lançamentos cadastrados
+                    </h2>
+
+                    <p
+                        id="list-status"
+                        class="status"
+                        role="status"
+                    >
+                        Carregando...
+                    </p>
+
+                </div>
+
+
+                <button
+                    type="button"
+                    id="btn-atualizar"
+                    class="button-secondary"
+                >
+                    Atualizar lista
+                </button>
+
+
+            </div>
+
+
+            <!-- TABELA -->
+
+            <div class="table-wrapper">
+
+                <table>
+
+                    <thead>
+
+                        <tr>
+
+                            <th>
+                                Livro
+                            </th>
+
+                            <th>
+                                País
+                            </th>
+
+                            <th>
+                                Data
+                            </th>
+
+                            <th>
+                                Ações
+                            </th>
+
+                        </tr>
+
+                    </thead>
+
+
+                    <tbody id="lancamentos-tbody">
+
+                    </tbody>
+
+                </table>
+
+            </div>
+
+        </section>
+
+
+    </main>
+
+
+    <!-- =====================================================
+         RODAPÉ
+         ===================================================== -->
+
+    <footer>
+
+        <p>
+            DW1 2026 | Luana Cazarin | 3º Projeto
+        </p>
+
+    </footer>
+
+
+    <!-- =====================================================
+         JAVASCRIPT
+         ===================================================== -->
+
+    <script src="../js/lancamentos.js"></script>
+
+</body>
+
+</html>

@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>BookShop | Cargos</title>
+  <link rel="stylesheet" href="../css/cargos.css">
+</head>
+<body>
+  <header>
+    <h1>BOOKSHOP</h1>
+    <p>Cadastro de cargos</p>
+  </header>
+
+  <nav aria-label="Navegação principal">
+    <ul>
+      <li><a href="../menu/index.html">Menu</a></li>
+      <li><a href="../livros/livros.html">Livros</a></li>
+      <li><a href="../lancamentos/lancamentos.html">Lançamentos</a></li>
+      <li><a href="../pessoas/pessoas.html">Pessoas</a></li>
+    </ul>
+  </nav>
+
+  <main class="container-master">
+    <section class="form-esquerda" aria-labelledby="titulo-cargo">
+      <h2 id="titulo-cargo">Dados do cargo</h2>
+
+      <label for="inputId_cargo">ID do cargo</label>
+      <div class="linha-id">
+        <input type="number" id="inputId_cargo" min="1" placeholder="Ex.: 1">
+        <button type="button" id="btProcure">Procurar</button>
+        <button type="button" id="btInserir" hidden>Inserir</button>
+        <button type="button" id="btAlterar" hidden>Alterar</button>
+        <button type="button" id="btExcluir" class="button-danger" hidden>Excluir</button>
+      </div>
+
+      <label for="inputNome_cargo">Nome do cargo</label>
+      <input type="text" id="inputNome_cargo" maxlength="100" placeholder="Ex.: Gerente">
+
+      <p id="divAviso" class="status" role="status">Informe o ID e clique em Procurar.</p>
+
+      <div class="botoes-acao">
+        <button type="button" id="btSalvar" hidden>Salvar</button>
+        <button type="button" id="btCancelar" class="button-secondary" hidden>Cancelar</button>
+      </div>
+    </section>
+
+    <section class="lista-cargos" aria-labelledby="titulo-lista">
+      <h2 id="titulo-lista">Cargos cadastrados</h2>
+      <p id="list-status" class="status">Carregando...</p>
+      <div id="outputSaida"></div>
+    </section>
+  </main>
+
+  <footer>
+    <p>DW1 2026 | Luana Cazarin | 3º Projeto</p>
+  </footer>
+
+  <script src="../js/cargos.js"></script>
+</body>
+</html>
